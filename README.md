@@ -18,7 +18,6 @@ To reset all queries, delete `/tmp/queryGists.*`
 * To import builtin module requests as part of python script, first install OSX/Linux, if not already installed.
 * pip install requests
 * To update, latest version of pip run: python.exe -m pip install --upgrade pip
-* Apply requirements.txt with pip
 
 ## Exit codes
 
