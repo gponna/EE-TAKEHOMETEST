@@ -36,7 +36,7 @@ if req.status_code != 200:
     else:
         req.raise_for_status()
     exit(255)
-gist = json.loads(r.content)
+gist = json.loads(req.content)
 if not gist:
     print ('Github user "' + args.gitUser + '" has not published any gists.')
     exit(1)
@@ -63,13 +63,13 @@ else:
     lastCreateDate = dt.strptime(stringDate,'%Y-%m-%dT%H:%M:%SZ')
     currentLastCreateDate = dt.strptime(gist[0]['created_at'], '%Y-%m-%dT%H:%M:%SZ')
     if currentLastCreateDate > lastCreateDate:
-        print('Github user "' + args.gitUser + '" created a new gist since the last query.')
+        print('Github user "' + args.gitUser + '" created a new gist since the previous query.')
         try:
             configFile.seek(0,0)
             configFile.write(gist[0]['created_at'])
         except Exception as e:
             raise
     else:
-        print('Github user "' + args.gitUser + '" has not created a new gist since the last query.')
+        print('Github user "' + args.gitUser + '" has not created a new gist since the previous query.')
     configFile.close()
 exit(0)
