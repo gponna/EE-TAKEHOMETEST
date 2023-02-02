@@ -4,10 +4,10 @@ from __future__ import print_function
 
 # queryGists.py is a script to query a user's GitHub gists
 #
-# Syntax:  queryGists.py <username>, where <username> is the Github user's username.
+# Usage:  usage: queryGists.py [-h] <gitusername>, where <gitusername> is the Github user's username.
 #
 # On query a user's gists, queryGists will register the current gists for that user and show the date of the latest gist. 
-# The user will be registered in a file named "/tmp/queryGists.<username>".
+# The user will be registered in a file named "/tmp/queryGists.<gitusername>".
 # Subsequent executions for the same username will tell you if a new gist has been added by the user.
 
 import os
