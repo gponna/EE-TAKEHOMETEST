@@ -2,12 +2,12 @@
 
 from __future__ import print_function
 
-# queryGists.py is a script to query a user's GitHub gists
+# Script : queryusergists.py, is a script to query a GitHub user's gists
 #
-# Usage:  usage: queryGists.py [-h] <gitusername>, where <gitusername> is the Github user's username.
+# Usage:  queryusergists.py [-h] <username>, where <username> is the Github user's username.
 #
-# On query a user's gists, queryGists will register the current gists for that user and show the date of the latest gist. 
-# The user will be registered in a file named "/tmp/queryGists.<gitusername>".
+# Description : On query a user's gists, queryGists will register the current gists for that user and show the date of the latest gist. 
+# The user will be registered in a file named "/tmp/queryusergists.<username>".
 # Subsequent executions for the same username will tell you if a new gist has been added by the user.
 
 import os
@@ -44,7 +44,7 @@ if not gist:
 # Checking for any previous record of a query and if not, creating as a new entry
 # If exists then to read the record file to get the previous check and compare to notify new gist.
 
-configPath = '/tmp/queryGists.' + args.gitUser
+configPath = '/tmp/queryusergists.' + args.gitUser
 if not os.path.isfile(configPath):
     print('Github user "' + args.gitUser + '" gists have not been previously queried.')
     print('Creating checkpoint file: ' + configPath)
