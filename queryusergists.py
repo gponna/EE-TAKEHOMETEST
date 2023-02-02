@@ -10,6 +10,7 @@ from __future__ import print_function
 # The user will be registered in a file named "/tmp/queryusergists.<username>".
 # Subsequent executions for the same username will tell you if a new gist has been added by the user.
 
+import sys
 import os
 import argparse
 try:
