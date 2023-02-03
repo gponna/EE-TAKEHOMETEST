@@ -4,11 +4,11 @@ from __future__ import print_function
 
 # Script : queryusergists.py, is a script to query a GitHub user's gists
 #
-# Usage:  queryusergists.py [-h] <username>, where <username> is the Github user's username.
+# Usage:  queryusergists.py [-h] <username>, where <username> is the Github user's username
 #
-# Description : On query a user's gists, queryGists will register the current gists for that user and show the date of the latest gist. 
-# The user will be registered in a file named "/tmp/queryusergists.<username>".
-# Subsequent executions for the same username will tell you if a new gist has been added by the user.
+# Description : On query a user's gists, queryGists will register the current gists for that user and show the date of the latest gist
+# The user will be registered in a file named "/tmp/queryusergists.<username>"
+# Subsequent executions for the same username will tell you if a new gist has been added by the user
 
 import sys
 import os
@@ -33,7 +33,7 @@ GISTS_URL = 'http://api.github.com/users/' + args.gitUser + '/gists'
 req = requests.get(GISTS_URL)
 if req.status_code != 200:
     if req.status_code == 404:
-        print ('Error: Github user "' + args.gitUser + '" not found.')
+        print ('Error: Github for user "' + args.gitUser + '" not found, re-check username.')
     else:
         req.raise_for_status()
     exit(255)
@@ -64,7 +64,7 @@ else:
     lastCreateDate = dt.strptime(stringDate,'%Y-%m-%dT%H:%M:%SZ')
     currentLastCreateDate = dt.strptime(gist[0]['created_at'], '%Y-%m-%dT%H:%M:%SZ')
     if currentLastCreateDate > lastCreateDate:
-        print('Github user "' + args.gitUser + '" created a new gist since the previous query.')
+        print('Github user "' + args.gitUser + '" created new gist(s) since the previous query.')
         try:
             configFile.seek(0,0)
             configFile.write(gist[0]['created_at'])
